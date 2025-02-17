@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cankov</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="text-center">Objednávky krmiva pro zvířata</h1>
+    <div class="container">
+      <div class="c1">
+        <div class="input-group">
+          <label for="krmivo">Vyberte krmivo:</label>
+          <select id="krmivo">
+            <option value="150">Psí žrádlo 150 Kč/kg</option>
+            <option value="120">Kočičí žrádlo 120 Kč/kg</option>
+            <option value="50">Žrádlo pro rybičky 50 Kč/kg</option>
+            <option value="800">Žrádlo pro tygra 800 Kč/kg</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="mnozstvi">Počet kilogramů:</label>
+          <input type="number" id="mnozstvi" min="1" value="1" />
+        </div>
+        <div class="input-group">
+          <label for="aktualniCena">Celková aktuální cena krmiva:</label>
+          <input type="text" id="aktualniCena" readonly />
+        </div>
+
+        <fieldset class="checkbox input-group">
+          <legend class="checkbox">Volitelné vlastnosti krmiva:</legend>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="bio"
+              value="0.3"
+              class="form-check-input class"
+            />
+            <label for="bio" class="form-check-label">
+              Bio kvalita (+30%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="premium"
+              value="0.5"
+              class="form-check-input class"
+            />
+            <label for="premium" class="form-check-label">
+              Extra premium kvalita (+50%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="nekvalita"
+              value="-0.15"
+              class="form-check-input class"
+            />
+            <label for="nekvalita" class="form-check-label">
+              Extra nekvalita (-15%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="darek"
+              value="500"
+              class="form-check-input class"
+            />
+            <label for="darek" class="form-check-label">
+              Dárkové balení (+500Kč)
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="radio input-group">
+          <legend class="radioB">Doprava</legend>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="osobni"
+              name="doprava"
+              value="0"
+              checked
+              class="form-check-input class"
+            />
+            <label for="osobni" class="form-check-label">
+              Osobní odběr (bez příplatku)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="firemni"
+              name="doprava"
+              value="0.1"
+              class="form-check-input class"
+            />
+            <label for="firemni" class="form-check-label">
+              Firemní kurýr (+10%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="ceska"
+              name="doprava"
+              value="250"
+              class="form-check-input class"
+            />
+            <label for="ceska" class="form-check-label">
+              Česká pošta (+250 Kč)
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="input-group">
+          <label for="cena">Celková cena:</label>
+          <input type="text" id="cena" readonly />
+        </div>
+
+        <div class="input-group">
+          <label for="castka">Zadejte částku, kterou máte k utracení:</label>
+          <input type="number" id="castka" min="0" />
+          <button type="button" onclick="zkontrolujCenu()">Zkontrolovat</button>
+        </div>
+
+        <p id="vysledek"></p>
+
+        <div class="input-group">
+          <div class="input-class">
+            <label for="email">Kontaktní email:</label>
+            <input
+              type="email"
+              id="email"
+              oninput="validateEmail()"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              required
+              title="Pouze písmena a číslice jsou povoleny."
+            />
+          </div>
+          <div class="vyber">
+            <select id="vyber-mail">
+              <option>@gmail.com</option>
+              <option>@seznam.cz</option>
+              <option>@email.cz</option>
+              <option>@centrum.cz</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-grid">
+          <button
+            type="submit"
+            id="submitButton"
+            disabled
+            class="btn btn-success"
+          >
+            Závazně objednat
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="bg-dark text-white text-center py-2">
+        <p class="mb-0">&copy; Cankov René 2025</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
